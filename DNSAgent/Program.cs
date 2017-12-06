@@ -89,7 +89,7 @@ namespace DnsAgent
                 startedEvent.Wait();
                 Logger.Title = "DNSAgent - Listening ...";
                 Logger.Info("DNSAgent has been started.");
-                Logger.Info("Press Ctrl-R to reload configurations, Ctrl-Q to stop and quit.");
+                Logger.Info("Press Ctrl-R to reload configurations, Ctrl-Q to stop and quit, Ctrl-D to clear screen.");
 
                 Task.Run(() =>
                 {
@@ -107,6 +107,11 @@ namespace DnsAgent
                             case ConsoleKey.Q:
                                 exit = true;
                                 Stop();
+                                break;
+
+                            case ConsoleKey.D:
+                                Console.Clear();
+                                Logger.Info("Press Ctrl-R to reload configurations, Ctrl-Q to stop and quit, Ctrl-D to clear screen.");
                                 break;
                         }
                     }
